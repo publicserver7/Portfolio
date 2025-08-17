@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Adarsh Kumar | IIT Patna ECE '29 | Portfolio of a creative developer with skills in Java, C++, Tailwind, GSAP, and more."
+    />
+    <meta name="author" content="Adarsh Kumar" />
+    <meta property="og:image" content="./me1.png" />
+    <meta property="og:title" content="Adarsh Kumar - Portfolio" />
+    <link rel="icon" type="image/x-icon" href="./logo2.png" />
+
+    <title>Adarsh Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
+    <!-- GSAP + ScrollTrigger CDN -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      @font-face {
+        font-family: "Typewriter";
+        src: url("./font/Typewriter-Bold.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "Minecraft";
+        src: url("./font/Minecraft.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Typewriter-thin";
+        src: url("./font/Typewriter-Thin.otf") format("opentype");
+      }
+      html {
+        /* Hide scrollbar for Firefox */
+        scrollbar-width: none;
+        /* Hide scrollbar for IE, Edge, and fallback for unsupported browsers */
+        -ms-overflow-style: none;
+      }
+      html::-webkit-scrollbar {
+        /* Hide scrollbar for Chrome, Safari, Opera */
+        display: none;
+      }
+      .heading {
+        font-family: "Minecraft", sans-serif;
+      }
+      .subheading {
+        font-family: "Typewriter", sans-serif;
+      }
+      .abt {
+        font-family: "Typewriter-thin", sans-serif;
+      }
+      @keyframes shine {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+      .animated-gradient {
+        background-size: 200% 200%;
+        animation: shine 3s ease-in-out infinite;
+      }
+      @keyframes floatBinary {
+        0% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(-12px);
+        }
+      }
+      #binaryBackground span {
+        animation: floatBinary 5s ease-in-out infinite alternate;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body class="bg-[#05052B] text-[#446EC2] overflow-x-hidden">
+    <div class="top-2 right-2 h-20 w-20 fixed z-10">
+      <img src="./logo.png" alt="logo" />
+    </div>
+    <section
+      id="hero"
+      class="relative h-screen flex items-center justify-center px-4 md:px-12"
+    >
+      <!-- Background Squares -->
+      <div
+        class="absolute inset-0 z-0 pointer-events-none"
+        id="bgSquares"
+      ></div>
+
+      <!-- Content Wrapper -->
+      <div
+        class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-7xl"
+      >
+        <!-- Text Block -->
+        <div
+          class="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1 opacity-0 translate-y-10"
+          id="textBlock"
+        >
+          <span class="heading text-[clamp(2.5rem,6vw,5rem)] leading-tight">
+            Hi! I am
+            <span
+              class="underline underline-offset-8 decoration-[#221c75] bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#00F0FF] text-transparent bg-clip-text animated-gradient"
+            >
+              Adarsh
+            </span>
+          </span>
+          <p
+            class="subheading mt-6 text-lg md:text-xl text-[#D8D8D8] md:text-justify max-w-md"
+          >
+            A curious soul, code whisperer, and a digital dreamer breathing life
+            into pixels
+          </p>
+          <button
+            onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })"
+            class="subheading mt-8 animate-bounce text-[#dedef8] border border-[#dedef8] px-6 py-2 rounded-full hover:bg-[#dedef8] hover:text-black transition"
+          >
+            See My Work ↓
+          </button>
+        </div>
+
+        <!-- Image -->
+        <div
+          class="flex justify-center md:justify-end order-1 md:order-2 opacity-0 translate-y-10"
+          id="imageBlock"
+        >
+          <img
+            src="image.png"
+            alt="me"
+            class="rounded-full size-72 md:size-[38rem] hover:scale-110 transition duration-500 select-none"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      id="about"
+      class="h-screen bg-[#05052B] text-[#446EC2] flex flex-col md:flex-row items-center justify-center px-8 md:px-24 relative"
+    >
+      <div
+        id="topLeftSquares"
+        class="absolute top-2 left-2 grid grid-cols-6 grid-rows-6 gap-6 md:gap-10 w-36 h-36 md:w-60 md:h-60 z-0 pointer-events-none"
+      ></div>
+      <div
+        id="bottomRightSquares"
+        class="absolute bottom-2 right-2 grid grid-cols-6 grid-rows-6 gap-6 md:gap-10 w-36 h-36 md:w-60 md:h-60 z-0 pointer-events-none"
+      ></div>
+      <script>
+        function generateGridSquares(containerId) {
+          const container = document.getElementById(containerId);
+          for (let i = 0; i < 36; i++) {
+            const square = document.createElement("div");
+            square.classList.add("bg-[#446EC2]");
+            container.appendChild(square);
+          }
+        }
+        generateGridSquares("topLeftSquares");
+        generateGridSquares("bottomRightSquares");
+      </script>
+      <!-- Your Picture -->
+      <div class="flex-shrink-0 mb-10 md:mb-0 md:mr-16">
+        <img
+          src="meNew.jpeg"
+          alt="Adarsh"
+          class="w-48 h-48 md:w-96 md:h-96 object-cover shadow-lg hover:scale-105 transition-transform duration-500 select-none"
+          draggable="false"
+        />
+      </div>
+
+      <!-- About Text -->
+      <div class="max-w-xl text-[#D8D8D8] text-center md:text-left space-y-6">
+        <h2
+          class="heading text-4xl mb-4 bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#00F0FF] text-transparent bg-clip-text"
+        >
+          Welcome to my portfolio
+        </h2>
+        <p class="abt text-lg text-justify">
+          I'm a programming enthusiast skilled in HTML5, CSS, Tailwind CSS,
+          Java and a bit in Python. I'm currently exploring competitive programming with C++ and actively participating in Codeforces contests. I enjoy
+          building clean, responsive user interfaces and solving algorithmic
+          challenges.
+        </p>
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <button
+          id="resume"
+          aria-label="View my resume"
+          class="w-60 subheading flex items-center gap-2 px-6 py-2 text-lg rounded-full bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#00F0FF] text-[#D8D8D8] hover:text-white hover:shadow-[0_0_15px_#00F0FF] transition duration-500"
+        >
+          <a href="./Adarsh_Resume.pdf" target="_blank" download>View Resume</a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H3"
+            />
+          </svg>
+        </button> -->
+        <a href="https://codeforces.com/profile/public_server" target="_blank"><img src="Codeforces.colored.svg" class="size-12" alt="Codeforces"></a>
+        </div>
+      <!-- </div> -->
+    </section>
+    <section
+      id="skill"
+      class="relative min-h-screen bg-[#05052B] text-[#D8D8D8] flex flex-col items-center justify-center px-8 py-16"
+    >
+      <!-- Binary Background -->
+      <div
+        id="binaryBackground"
+        class="absolute inset-0 z-0 overflow-hidden pointer-events-none"
+      ></div>
+      <h2
+        class="heading text-6xl md:text-8xl mb-12 bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#00F0FF] text-transparent bg-clip-text"
+      >
+        My Skills
+      </h2>
+
+      <div
+        id="skillGrid"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 md:gap-32 text-center text-xl"
+      >
+        <!-- Skill Item -->
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg"
+            alt="Java"
+            class="w-32 h-32 transition-transform duration-500 group-hover:scale-125"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-plain.svg"
+            alt="C++"
+            class="w-32 h-32 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg"
+            alt="Python"
+            class="w-32 h-32 transition-transform duration-500 group-hover:scale-125"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original-wordmark.svg"
+            alt="Tailwind"
+            class="w-32 h-32 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+            alt="Node.js"
+            class="w-32 h-32 transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg"
+            alt="MongoDB"
+            class="w-32 h-32 transition-transform duration-500 group-hover:rotate-6 group-hover:scale-120"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg"
+            alt="Git"
+            class="w-32 h-32 transition-transform duration-500 group-hover:scale-125"
+          />
+        </div>
+
+        <div class="skill-card group">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+            alt="Git"
+            class="w-32 h-32 transition-transform duration-500 group-hover:scale-125"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      id="project"
+      class="bg-[#05052B] text-[#D8D8D8] py-20 px-8 flex flex-col items-center justify-center"
+    >
+      <h2
+        class="heading text-4xl md:text-6xl mb-16 font-bold text-center bg-gradient-to-r from-[#00F0FF] via-[#4A00E0] to-[#8E2DE2] text-transparent bg-clip-text"
+      >
+        Projects
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl">
+        <div
+          class="group transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#446EC2] bg-[#0F172A] rounded-sm border border-[#446EC2] p-6 flex flex-col items-center text-center space-y-4"
+        >
+          <img
+            src="./1.png"
+            alt="Project 1"
+            class="rounded-md object-cover w-full"
+          />
+          <div class="text-sm font-medium">
+            Futuristic collab website
+            <a
+              href="https://opaq.netlify.app"
+              target="_blank"
+              rel="noopener"
+              class="block mt-1 text-blue-300 hover:underline hover:text-cyan-300"
+              >Visit here</a
+            >
+          </div>
+          <div class="text-3xl space-x-4">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-tailwindcss-original colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+
+        <div
+          class="group transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#446EC2] bg-[#0F172A] rounded-sm border border-[#446EC2] p-6 flex flex-col items-center text-center space-y-4"
+        >
+          <img
+            src="./2.png"
+            alt="Project 2"
+            class="rounded-md object-cover w-full"
+          />
+          <div class="text-sm font-medium">
+            Rap singer portfolio website
+            <a
+              href="https://cold707.netlify.app"
+              target="_blank"
+              class="block mt-1 text-blue-300 hover:underline hover:text-cyan-300"
+              >Visit here</a
+            >
+          </div>
+          <div class="text-3xl space-x-4">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-tailwindcss-original colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+
+        <div
+          class="group transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#446EC2] bg-[#0F172A] rounded-sm border border-[#446EC2] p-6 flex flex-col items-center text-center space-y-4"
+        >
+          <img
+            src="./3.png"
+            alt="Project 3"
+            class="rounded-md object-cover w-full"
+          />
+          <div class="text-sm font-medium">
+            Full stack developer portfolio
+            <a
+              href="https://gksingh.netlify.app"
+              target="_blank"
+              class="block mt-1 text-blue-300 hover:underline hover:text-cyan-300"
+              >Visit here</a
+            >
+          </div>
+          <div class="text-3xl space-x-4">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-tailwindcss-original colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+
+        <div
+          class="group transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#446EC2] bg-[#0F172A] rounded-sm border border-[#446EC2] p-6 flex flex-col items-center text-center space-y-4"
+        >
+          <img
+            src="./4.png"
+            alt="Project 4"
+            class="rounded-md object-cover w-full"
+          />
+          <div class="text-sm font-medium">
+            Animative portfolio site
+            <a
+              href="https://adarshkumartech.netlify.app"
+              target="_blank"
+              class="block mt-1 text-blue-300 hover:underline hover:text-cyan-300"
+              >Visit here</a
+            >
+          </div>
+          <div class="text-3xl space-x-4">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-tailwindcss-original colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+
+        <div
+          class="group transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#446EC2] bg-[#0F172A] rounded-sm border border-[#446EC2] p-6 flex flex-col items-center text-center space-y-4"
+        >
+          <img
+            src="./5.png"
+            alt="Project 5"
+            class="rounded-md object-cover w-full opacity-50"
+          />
+          <div class="text-sm font-medium text-gray-400">
+            Futuristic collab (Discontinued)
+            <span class="block mt-1 text-red-400 italic">Unavailable</span>
+          </div>
+          <div class="text-3xl space-x-4 opacity-60">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-tailwindcss-original colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+
+        <div
+          class="group transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_#446EC2] bg-[#0F172A] rounded-sm border border-[#446EC2] p-6 flex flex-col items-center text-center space-y-4"
+        >
+          <img
+            src="./6.png"
+            alt="Project 6"
+            class="rounded-md object-cover w-full"
+          />
+          <div class="text-sm font-medium">
+            Pixelated portfolio site
+            <a
+              href="https://akriit.netlify.app"
+              target="_blank"
+              class="block mt-1 text-blue-300 hover:underline hover:text-cyan-300"
+              >Visit here</a
+            >
+          </div>
+          <div class="text-3xl space-x-4">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-tailwindcss-original colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="footer"
+      class="min-h-screen bg-gradient-to-b from-[#05052B] to-black text-[#D8D8D8] flex flex-col items-center justify-center px-6 py-16 space-y-8"
+    >
+      <div class="flex flex-col items-center space-y-4">
+        <div
+          class="w-48 h-48 rounded-full flex items-center justify-center text-4xl font-bold text-black select-none"
+          aria-label="Adarsh Kumar logo"
+          role="img"
+        >
+          <img alt="j" src="./logo.png" />
+        </div>
+        <h2
+          class="subheading text-3xl font-minecraft bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#00F0FF] text-transparent bg-clip-text"
+        >
+          Adarsh Kumar
+        </h2>
+        <p class="abt text-lg text-[#bcbcbc] tracking-wide">
+          IIT Patna ECE '29
+        </p>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="flex space-x-10">
+        <a
+          href="https://github.com/publicserver7"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="text-[#D8D8D8] hover:text-[#00F0FF] transition duration-300"
+        >
+          <i class="devicon-github-original text-4xl"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/adarshkumariitp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="text-[#D8D8D8] hover:text-[#00F0FF] transition duration-300"
+        >
+          <i class="devicon-linkedin-plain text-4xl"></i>
+        </a>
+        <a
+          href="https://x.com/akmECEengg"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+          class="text-[#D8D8D8] hover:text-[#00F0FF] transition duration-300"
+        >
+          <i class="devicon-twitter-original text-4xl"></i>
+        </a>
+        <a
+          href="https://instagram.com/adarshk.237"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="text-[#D8D8D8] hover:text-[#00F0FF] transition duration-300"
+        >
+          <i class="fab fa-instagram text-4xl"></i>
+        </a>
+      </div>
+
+      <!-- Contact email -->
+      <p class="text-[#bcbcbc] mt-8 text-sm select-text">
+        <a
+          href="mailto:dev.adarsh.kumar7@gmail.com"
+          class="underline hover:text-[#00F0FF]"
+          >dev.adarsh.kumar7@gmail.com</a
+        >
+      </p>
+    </section>
+    <script>
+      // GSAP Scroll Animations
+      ScrollTrigger.refresh();
+
+      gsap.to("#textBlock", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
+      });
+
+      gsap.to("#imageBlock", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+      });
+
+      gsap.from(".skill-card", {
+        scrollTrigger: {
+          trigger: "#skillGrid",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 50,
+        scale: 0.8,
+        stagger: {
+          each: 0.15,
+          from: "random",
+        },
+        ease: "back.out(1.7)",
+        duration: 0.9,
+      });
+
+      // Hero Background Squares
+      const bg = document.getElementById("bgSquares");
+      for (let i = 0; i < 40; i++) {
+        const square = document.createElement("div");
+        const size = Math.floor(Math.random() * 10) + 5;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+
+        Object.assign(square.style, {
+          position: "absolute",
+          width: `${size}px`,
+          height: `${size}px`,
+          backgroundColor: "#2B4B84",
+          left: `${left}%`,
+          top: `${top}%`,
+          opacity: Math.random() * 0.5 + 0.3,
+        });
+
+        bg.appendChild(square);
+      }
+
+      // Binary Background for Skills
+      const binaryBg = document.getElementById("binaryBackground");
+      for (let i = 0; i < 100; i++) {
+        const digit = document.createElement("span");
+        digit.innerText = Math.random() > 0.5 ? "0" : "1";
+        digit.style.position = "absolute";
+        digit.style.color = "#446EC2";
+        digit.style.opacity = Math.random() * 0.5 + 0.3;
+        digit.style.fontSize = `${Math.random() * 1 + 0.8}rem`;
+        digit.style.left = `${Math.random() * 100}%`;
+        digit.style.top = `${Math.random() * 100}%`;
+        digit.style.fontFamily = "monospace";
+        binaryBg.appendChild(digit);
+      }
+      gsap.from("#about", {
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 80%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    </script>
+  </body>
+</html>
